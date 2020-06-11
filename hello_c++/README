@@ -1,0 +1,34 @@
+Some tests of g++, breaking the various stages down.
+run:
+$ make check
+To build the same files 3 different ways and check the're identical.
+Good chance the long form ones don't work on another machine with different file paths.
+
+
+# Compilation stages
+# PREPROCESSING -> COMPILATION -> ASSEMBLING -> LINKING
+# File types
+# source.cpp -> preprocessed.i -> compiled.s -> assembled.o -> linked (executable)
+
+
+
+Done 3 ways. Confirmed they produce the exact same statically linked executables.
+
+1) Through the g++ wrapper one step at a time.
+gpp_preprocessed.i
+gpp_compiled.s
+gpp_assembled.o
+gpp_linked
+
+2) Through the g++ wrapper always starting at the source hello.cpp file
+   No real reason to generate the preprocessed file again, same step
+gpp_one_shot_compiled.s
+gpp_one_shot_assembled.o
+gpp_one_shot_linked
+
+3) The long form using --verbose with the g++ commands used to build the other ones.
+long_form_preprocessed.i
+gpp_one_shot_compiled.s
+gpp_one_shot_assembled.o
+gpp_one_shot_linked
+
