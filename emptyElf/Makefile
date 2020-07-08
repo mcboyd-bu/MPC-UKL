@@ -5,4 +5,4 @@ hello: hello.c
 	gcc --static hello.c -o hello
 
 clean:
-	-rm empty hello
+	-rm empty hello empty.map
