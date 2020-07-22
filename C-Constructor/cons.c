@@ -1,5 +1,5 @@
 #include <stdio.h>
-/* #define printf printk */
+//#define printf printk
 
 void __attribute__ ((constructor)) a_constructor() {
   printf("%s\n", __FUNCTION__);
