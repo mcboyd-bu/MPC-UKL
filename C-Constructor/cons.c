@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 //#define printf printk
 
 void __attribute__ ((constructor)) a_constructor() {
