@@ -1,13 +1,20 @@
 #include <stdio.h>
+#define printf printk
 
-//#define printf printk
+extern void init_cacheinfo (void);
 
 void __attribute__ ((constructor)) a_constructor() {
   printf("%s\n", __FUNCTION__);
+  //init_cacheinfo();
 }
 void __attribute__ ((constructor)) b_constructor() {
   printf("%s\n", __FUNCTION__);
+  init_cacheinfo();
+  printf("init cacheinfo run\n");
 }
+//void __attribute__ ((constructor)) init_cacheinfo();
+
+// extern void __attribute__((constructor)) init_cacheinfo (void);
 
 int main()
 {
